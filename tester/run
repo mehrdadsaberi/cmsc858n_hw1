@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-
 bash ./compile
-
-python3 run_tests.py
+python run_tests.py

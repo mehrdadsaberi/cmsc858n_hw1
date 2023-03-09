@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
     }
   }
   if (!test){
-    std::cout << "n = " << n << " num_rounds = " << num_rounds << " func = " << (func ? "sum" : "max") << std::endl;
+    std::cout << "n = " << n << " num_rounds = " << num_rounds << " func = " << (func ? "max" : "sum") << std::endl;
   }
   Type* A = (Type*)malloc(n * sizeof(Type));
   auto reset_array = [&] () {
@@ -52,11 +52,11 @@ int main(int argc, char* argv[]) {
     auto g = [&] (Type l, Type r) { return l + r; };
     Type ans;
     if (func){
-      // ans = scan_inplace(A, n, f, id);
-      ans = scan_inplace_serial(A, n, f, id);
+      ans = scan_inplace(A, n, f, id);
+      // ans = scan_inplace_serial(A, n, f, id);
     } else{
-      // ans = scan_inplace(A, n, g, id);
-      ans = scan_inplace_serial(A, n, g, id);
+      ans = scan_inplace(A, n, g, id);
+      // ans = scan_inplace_serial(A, n, g, id);
     }
     t.stop();
 

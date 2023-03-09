@@ -9,6 +9,7 @@
 using Type = long long;
 
 int main(int argc, char* argv[]) {
+
   size_t n = 1e9;
   int num_rounds = 3;
   if (argc >= 2) {
@@ -36,8 +37,9 @@ int main(int argc, char* argv[]) {
   double total_time = 0;
   for (int i = 0; i <= num_rounds; i++) {
     parlay::timer t;
-    long long ans = reduce(A, n);
-    //long long ans = serial_reduce(A, n);
+    // long long ans = reduce(A, n);
+    // long long ans = serial_reduce(A, n);
+    long long ans = reduce_2(A, n);
     t.stop();
 
     if (i == 0) {
